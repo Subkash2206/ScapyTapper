@@ -6,9 +6,10 @@ from scapy.layers.dns import DNS, DNSQR
 from scapy.packet import Raw
 
 class PacketSniffer():
-    def __init__(self, whichFilter = None, interface = None, count = 20):
+    def __init__(self, whichFilter = None, interface = None, count = None, timeout = None):
         self.interface = interface or conf.iface
         self.count = count
+        self.timeout = timeout
         self.whichFilter = whichFilter
         self.packets = None
         self.proto_dict = {
@@ -24,9 +25,14 @@ class PacketSniffer():
         }
 
     def sniff_packets(self):
+        print(f"Sniffing on interface: {self.interface}")
+        if not self.count and not self.timeout:
+            print("Press Ctrl+C to stop sniffing...")
+
         self.packets = sniff(
             iface=self.interface,
-            count=self.count,
+            count=self.count if self.count is not None else 0,
+            timeout = self.timeout,
             prn=lambda packet: packet.summary(),
             filter=self.whichFilter
         )

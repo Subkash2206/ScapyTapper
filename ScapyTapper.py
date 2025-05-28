@@ -5,7 +5,8 @@ def main():
     args = parse_args()
 
     sniffer = PacketSniffer(interface=args.interface,
-        count=args.count,
+        count=args.count if args.count else None,
+        timeout = args.timeout,
         whichFilter=args.filter)
 
     sniffer.sniff_packets()

@@ -30,7 +30,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="ScapyTapper - A Packet Sniffer based on scapy")
 
     parser.add_argument("-i", "--interface",
-                        help="Interface to sniff(eth0, ens33, enps03, wlan0, etc",
+                        help="Interface to sniff(eth0, ens33, enps03, wlan0, etc)",
                         default=None)
 
     parser.add_argument("-f", "--filter",
@@ -43,8 +43,12 @@ def parse_args():
 
     parser.add_argument("-c", "--count",
                         type = int,
-                        help = "Number of packets to sniff",
-                        default = 20)
+                        help = "Number of packets to sniff (default: infinite, ctrl+C to exit) ",
+                        default = None)
+    parser.add_argument("-t", "--timeout",
+                        type = int,
+                        default = None,
+                        help = "Time duration to sniff packets[overrides count if set]")
 
     return parser.parse_args()
 

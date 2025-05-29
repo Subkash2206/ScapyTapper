@@ -40,11 +40,12 @@ class PacketSniffer():
         print(f"Interface = {self.interface}")
 
     def print_packets(self):
+
         print(f"\n{'Time':19} {'Source':40} {'->':2} {'Destination':40} {'Protocol':10} {'Port Info':45} {'Extra Info'}")
 
         for pkt in self.packets:
 
-            timestamp = datetime.fromtimestamp(pkt.time).strftime('%Y-%m-%d %H:%M:%S')[:-3]
+            timestamp = datetime.fromtimestamp(pkt.time).strftime('%Y-%m-%d %H:%M:%S')
             src = dst = proto_name = srcPort = dstPort = "-"
             details = ""
 

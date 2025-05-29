@@ -190,12 +190,11 @@ If no arguments are passed, the packet sniffing will continue endlessly until CT
 ## Features
 
 - Captures packets using Scapy
-- Supports IPv4, IPv6, TCP, UDP, ICMP, ARP
+- Supports IPv4, IPv6, TCP, UDP, ICMP, ICMP6, ARP
 - Parses and highlights:
   - DNS Queries
   - HTTP traffic
   - TCP Handshake and flags
-- Colored terminal output for easy reading
 - Protocol and port name resolution
 - Filter support (using BPF syntax)
 ```

@@ -208,8 +208,9 @@ If no arguments are passed, the packet sniffing will continue endlessly until CT
   - DNS Queries
   - HTTP traffic
   - TCP Handshake and flags
-- Protocol and port name resolution
-- Filter support (using BPF syntax)
+- Displays protocol and port name resolution
+- Protocol filter support (using BPF syntax)
+- Captured packets can be saved to a .pcap file
 ```
 
 

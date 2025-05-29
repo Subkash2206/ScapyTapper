@@ -49,6 +49,11 @@ def parse_args():
                         type = int,
                         default = None,
                         help = "Time duration to sniff packets[overrides count if set]")
+    parser.add_argument("-s", "--save",
+                        type  = str,
+                        default = None,
+                        help = "Save packets to a .pcap file (default: False) | example --save abc.pcap "
+                        )
 
     return parser.parse_args()
 

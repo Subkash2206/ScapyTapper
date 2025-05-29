@@ -4,14 +4,16 @@ from scapy.layers.inet6 import IPv6, ICMPv6EchoRequest, ICMPv6EchoReply, ICMPv6N
 from scapy.layers.l2 import ARP
 from scapy.layers.dns import DNS, DNSQR
 from scapy.packet import Raw
+from scapy.utils import wrpcap
 
 class PacketSniffer():
-    def __init__(self, whichFilter = None, interface = None, count = None, timeout = None):
-        self.interface = interface or conf.iface
+    def __init__(self, whichFilter = None, interface = None, count = None, timeout = None, packetSave = None):
+        self.interface = interface if interface else conf.iface
         self.count = count
         self.timeout = timeout
         self.whichFilter = whichFilter
         self.packets = None
+        self.packetSave = packetSave
         self.proto_dict = {
             6: 'TCP', 17: 'UDP', 58: 'ICMPv6', 1: 'ICMP', 'ARP': 'ARP'
         }
@@ -28,6 +30,10 @@ class PacketSniffer():
         print(f"Sniffing on interface: {self.interface}")
         if not self.count and not self.timeout:
             print("Press Ctrl+C to stop sniffing...")
+
+        if self.packetSave:
+            wrpcap(self.packetSave, self.packets)
+            print(f"Sniffed packets saved to {self.packetSave}")
 
         self.packets = sniff(
             iface=self.interface,

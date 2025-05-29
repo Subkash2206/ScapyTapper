@@ -7,7 +7,9 @@ def main():
     sniffer = PacketSniffer(interface=args.interface,
         count=args.count if args.count else None,
         timeout = args.timeout,
-        whichFilter=args.filter)
+        whichFilter=args.filter,
+        packetSave = args.save
+        )
 
     sniffer.sniff_packets()
     sniffer.print_packets()

@@ -1,5 +1,6 @@
 
 # ScapyTapper
+ScapyTapper is a simple network analysis tool which analyses ipv4, ipv6, and arp packets. It can display relevant information such as the source and destination IP, protocol involved, port info, TCP flags, DNS queries, and HTTP methods. Arguments can be passed on the command line to allow users to filter based on protocol, interface, or the number of packets to be captured, etc. 
 
 Requirements
 
@@ -74,6 +75,12 @@ python3 ScapyTapper.py
 ```
 
 ## Usage
+
+```bash
+python3 ScapyTapper.py --help
+#or
+python3 ScapyTapper.py -h
+```
 
 ## 1. Run with required interface argument:
    
@@ -173,6 +180,10 @@ python3 ScapyTapper.py -i ens33 -f "tcp or udp" -t 10 -c 10
 ```
 
 If no arguments are passed, the packet sniffing will continue endlessly until CTRL + C is pressed to interrupt the program.
+
+## Sample Output
+
+![sample_output](https://github.com/user-attachments/assets/8184f0d4-d81a-4057-aca6-b4cdbb60a477)
 
 ## Current Features:
 ```markdown

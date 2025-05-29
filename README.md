@@ -171,12 +171,25 @@ python3 ScapyTapper.py --timeout 10
 What if both --count and --timeout arguments are passed?  
 Both conditions will be respected and sniffing will stop when the first condition is met.
 
+## 5. Save captured packets to a .pcap file
+```bash
+python3 ScapyTapper.py --save <file_name.pcap>
+#or
+python3 ScapyTapper.py -s <file_name.pcap>
+```
+.pcap file is saved in the '../../ScapyTapper/' directory by deafult 
+
+Example:
+```bash
+python3 ScapyTapper.py --save Test.pcap
+```
+
 ## Final Example:
 
 ```bash
-python3 ScapyTapper.py --interface ens33 --filter "tcp or udp" --timeout 10 --count 10
+python3 ScapyTapper.py --interface ens33 --filter "tcp or udp" --timeout 10 --count 10 --save Example.pcap
 #or
-python3 ScapyTapper.py -i ens33 -f "tcp or udp" -t 10 -c 10
+python3 ScapyTapper.py -i ens33 -f "tcp or udp" -t 10 -c 10 -s Example.pcap
 ```
 
 If no arguments are passed, the packet sniffing will continue endlessly until CTRL + C is pressed to interrupt the program.

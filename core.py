@@ -41,7 +41,7 @@ class PacketSniffer():
 
     def print_packets(self):
 
-        print(f"\n{'Time':19} {'Source':40} {'->':2} {'Destination':40} {'Protocol':10} {'Port Info':45} {'Extra Info'}")
+        print(f"\n{'Time':25} {'Source':40} {'->':2} {'Destination':40} {'Protocol':10} {'Port Info':37} {'Extra Info'}")
 
         for pkt in self.packets:
 
@@ -68,7 +68,7 @@ class PacketSniffer():
                 srcPort = pkt[ARP].hwsrc
                 dstPort = pkt[ARP].hwdst
                 details = "ARP Packet"
-                print(f"{timestamp:19} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:25} {details}")
+                print(f"{timestamp:25} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:16} {details}")
                 continue
 
             elif Ether in pkt:
@@ -77,7 +77,7 @@ class PacketSniffer():
                 proto_name = "Ethernet"
                 srcPort = dstPort = "-"
                 details = "No IP/ARP Layer"
-                print(f"{timestamp:19} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:25} {details}")
+                print(f"{timestamp:25} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:16} {details}")
                 continue
 
             if TCP in pkt:
@@ -146,7 +146,7 @@ class PacketSniffer():
                 srcPort = dstPort = "-"
                 details = "ICMP Packet"
 
-            print(f"{timestamp:19} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:25} {details.strip()}")
+            print(f"{timestamp:25} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:16} {details.strip()}")
             print()
 
 

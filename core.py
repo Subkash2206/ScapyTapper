@@ -155,6 +155,7 @@ class PacketSniffer():
             print(f"{timestamp:25} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:16} {details.strip()}")
             print()
 
+        print("\n=== ScapyTapper Session Summary ===")
         print(f"Interface: {self.interface}")
         print(f"Packets: {self.packets}")
         print(f"Filter: {self.whichFilter}")

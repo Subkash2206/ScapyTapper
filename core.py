@@ -162,6 +162,7 @@ class PacketSniffer():
         print(f"Packets saved to: {self.packetSave}")
         print(f"Count: {self.count}")
         print(f"Timeout: {self.timeout}")
+        print("==================================\n")
 
 
 

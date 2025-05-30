@@ -177,7 +177,7 @@ python3 ScapyTapper.py --save <file_name.pcap>
 #or
 python3 ScapyTapper.py -s <file_name.pcap>
 ```
-.pcap file is saved in the '../../ScapyTapper/' directory by deafult 
+.pcap file is saved in the '../../ScapyTapper/' directory by default 
 
 Example:
 ```bash

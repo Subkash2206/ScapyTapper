@@ -155,5 +155,12 @@ class PacketSniffer():
             print(f"{timestamp:25} {src:40} -> {dst:40} {proto_name:10} {srcPort:17} -> {dstPort:16} {details.strip()}")
             print()
 
+        print(f"Interface: {self.interface}")
+        print(f"Packets: {self.packets}")
+        print(f"Filter: {self.whichFilter}")
+        print(f"Packets saved to: {self.packetSave}")
+        print(f"Count: {self.count}")
+        print(f"Timeout: {self.timeout}")
+
 
 
